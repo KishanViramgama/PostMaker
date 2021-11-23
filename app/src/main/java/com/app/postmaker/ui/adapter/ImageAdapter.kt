@@ -22,6 +22,7 @@ class ImageAdapter(
 
         val view = LayoutInflater.from(activity).inflate(R.layout.frame_adapter, parent, false)
         return ViewHolder(view)
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -34,7 +35,6 @@ class ImageAdapter(
 
     override fun getItemCount(): Int {
         return int.size
-        TODO("Not yet implemented")
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
