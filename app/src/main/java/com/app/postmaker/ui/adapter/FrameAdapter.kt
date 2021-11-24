@@ -17,6 +17,7 @@ class FrameAdapter(private var activity: Activity, private var frameDesign: IntA
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
     }
 
     override fun getItemCount(): Int {
@@ -24,10 +25,11 @@ class FrameAdapter(private var activity: Activity, private var frameDesign: IntA
     }
 
     override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
+        return frameDesign[position]
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
     }
 
 }

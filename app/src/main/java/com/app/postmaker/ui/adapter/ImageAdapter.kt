@@ -29,7 +29,7 @@ class ImageAdapter(
 
         Glide.with(activity).load(int[position]).into(holder.image)
 
-        holder.image.setOnClickListener { v -> onClick.click(position) }
+        holder.image.setOnClickListener { onClick.click(position) }
 
     }
 

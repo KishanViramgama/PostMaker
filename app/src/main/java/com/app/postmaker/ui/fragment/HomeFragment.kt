@@ -1,11 +1,14 @@
 package com.app.postmaker.ui.fragment
 
+import android.annotation.SuppressLint
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,10 +19,12 @@ import com.app.postmaker.ui.adapter.FrameAdapter
 import com.app.postmaker.ui.adapter.ImageAdapter
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
+import java.io.FileOutputStream
 
 
 class HomeFragment : Fragment() {
 
+    private lateinit var con: ConstraintLayout
     private lateinit var imageView: ImageView
     private lateinit var button: MaterialButton
     private lateinit var recyclerView: RecyclerView
@@ -29,6 +34,7 @@ class HomeFragment : Fragment() {
     private var frameDesign = intArrayOf(R.layout.frame_a, R.layout.frame_b)
     private var image = intArrayOf(R.drawable.a, R.drawable.b);
 
+    @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,6 +50,7 @@ class HomeFragment : Fragment() {
             }
         }
 
+        con = view.findViewById(R.id.con_frame)
         button = view.findViewById(R.id.button_main)
         imageView = view.findViewById(R.id.imageView_main)
         recyclerView = view.findViewById(R.id.recyclerView)
@@ -63,10 +70,25 @@ class HomeFragment : Fragment() {
         viewPager2.adapter = frameAdapter
 
         button.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction()
-                .add(R.id.frameLayout_main, FrameFragment(), getString(R.string.home))
-                .addToBackStack(getString(R.string.home))
-                .commitAllowingStateLoss()
+
+
+            con.isDrawingCacheEnabled = true
+            val bitmap = Bitmap.createBitmap(con.drawingCache)
+            con.isDrawingCacheEnabled = false
+
+            val mPath = requireActivity().externalCacheDir!!.absolutePath
+
+            try {
+                val outputStream = FileOutputStream(mPath + "_" + "a.jpg")
+                val quality = 100
+                bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
+                outputStream.flush()
+                outputStream.close()
+            } catch (e: Throwable) {
+                // Several error may come out with file handling or DOM
+                e.printStackTrace()
+            }
+
 
         }
 
