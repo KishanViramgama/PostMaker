@@ -17,4 +17,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 
+    <style name="editText_style" parent="ThemeOverlay.MaterialComponents.TextInputEditText">
+        <item name="colorControlActivated">@color/cursor_editText</item>
+        <item name="android:textColorHighlight">@color/textView_select_text</item>
+    </style>
+
 </resources>
