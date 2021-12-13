@@ -7,12 +7,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class ProfileList(
-    val name: String,
-    val email: String,
-    val phoneNo: String,
-    val webSite: String,
-    val address: String, @PrimaryKey(autoGenerate = true) val id: Int? = 0
+data class Profile(
+    @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "email") val email: String,
+    @ColumnInfo(name = "phoneNo") val phoneNo: String,
+    @ColumnInfo(name = "webSite") val webSite: String,
+    @ColumnInfo(name = "address") val address: String,
+    @PrimaryKey(autoGenerate = true) val id: Int? = 0
 ) : Serializable {
 
     /*@PrimaryKey(autoGenerate = true)
