@@ -58,7 +58,7 @@ class ProfileFragment : Fragment() {
                         )
                     )
             }
-            
+
             Toast.makeText(activity, "Submit", Toast.LENGTH_SHORT).show()
         }
 
