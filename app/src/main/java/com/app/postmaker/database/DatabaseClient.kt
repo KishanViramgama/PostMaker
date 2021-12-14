@@ -3,10 +3,15 @@ package com.app.postmaker.database
 import android.annotation.SuppressLint
 import android.app.Activity
 import androidx.room.Room
+import androidx.room.RoomDatabase
 
-class DatabaseClient(private val activity: Activity) {
+class DatabaseClient private constructor(activity: Activity) {
     //our app database object
-    val appDatabase: AppDatabase = Room.databaseBuilder(activity, AppDatabase::class.java, "Quiz").build()
+    val appDatabase: AppDatabase =
+        Room.databaseBuilder(activity, AppDatabase::class.java, "UserData")
+            .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
+            .build()
 
     companion object {
         @SuppressLint("StaticFieldLeak")
@@ -21,9 +26,4 @@ class DatabaseClient(private val activity: Activity) {
         }
     }
 
-    init {
-
-        //creating the app database with Room database builder
-        //MyToDos is the name of the database
-    }
 }

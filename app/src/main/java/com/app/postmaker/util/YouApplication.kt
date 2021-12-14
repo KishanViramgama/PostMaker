@@ -6,7 +6,6 @@ class YouApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
     }
 
 }

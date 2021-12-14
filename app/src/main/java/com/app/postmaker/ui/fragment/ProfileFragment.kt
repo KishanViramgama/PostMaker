@@ -1,16 +1,14 @@
 package com.app.postmaker.ui.fragment
 
 import android.annotation.SuppressLint
-import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.room.Room
 import com.app.postmaker.R
-import com.app.postmaker.database.AppDatabase
+import com.app.postmaker.database.DatabaseClient
 import com.app.postmaker.item.Profile
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -43,11 +41,8 @@ class ProfileFragment : Fragment() {
 
         button.setOnClickListener { v ->
             activity?.let {
-                Room.databaseBuilder(it, AppDatabase::class.java, "UserData")
-                    .fallbackToDestructiveMigration()
-                    .allowMainThreadQueries()
-                    .build()
-                    .userTask()
+                DatabaseClient.getInstance(it)?.appDatabase
+                    ?.userTask()
                     ?.insert(
                         Profile(
                             editTextName.toString(),
