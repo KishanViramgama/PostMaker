@@ -45,11 +45,11 @@ class ProfileFragment : Fragment() {
                     ?.userTask()
                     ?.insert(
                         Profile(
-                            editTextName.toString(),
-                            editTextEmail.toString(),
-                            editTextPhoneNO.toString(),
-                            editTextWebSite.toString(),
-                            editTextAddress.toString()
+                            editTextName.text.toString(),
+                            editTextEmail.text.toString(),
+                            editTextPhoneNO.text.toString(),
+                            editTextWebSite.text.toString(),
+                            editTextAddress.text.toString(), null
                         )
                     )
             }

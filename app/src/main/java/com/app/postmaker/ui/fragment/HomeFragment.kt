@@ -3,6 +3,7 @@ package com.app.postmaker.ui.fragment
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.app.postmaker.R
+import com.app.postmaker.database.DatabaseClient
 import com.app.postmaker.interfaces.OnClick
+import com.app.postmaker.item.Profile
 import com.app.postmaker.ui.adapter.FrameAdapter
 import com.app.postmaker.ui.adapter.ImageAdapter
 import com.bumptech.glide.Glide
@@ -41,8 +44,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val view: View =
-            inflater.inflate(R.layout.home_fragment, container, false)
+        val view: View = inflater.inflate(R.layout.home_fragment, container, false)
 
         val onClick = object : OnClick {
             override fun click(i: Int) {
@@ -71,8 +73,7 @@ class HomeFragment : Fragment() {
 
         button.setOnClickListener {
 
-
-            con.isDrawingCacheEnabled = true
+            /*con.isDrawingCacheEnabled = true
             val bitmap = Bitmap.createBitmap(con.drawingCache)
             con.isDrawingCacheEnabled = false
 
@@ -87,15 +88,22 @@ class HomeFragment : Fragment() {
             } catch (e: Throwable) {
                 // Several error may come out with file handling or DOM
                 e.printStackTrace()
-            }
+            }*/
 
+            val string: String = activity?.let {
+                DatabaseClient.getInstance(it)?.appDatabase
+                    ?.userTask()
+                    ?.getData()?.get(1)?.name
+            }!!
+
+            Toast.makeText(activity, string, Toast.LENGTH_SHORT).show()
+            Log.d("information_data", string)
 
         }
 
         viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                Toast.makeText(activity, "page change", Toast.LENGTH_SHORT).show()
             }
 
         })
