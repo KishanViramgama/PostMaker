@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 class DatabaseClient private constructor(activity: Activity) {
-    //our app database object
     val appDatabase: AppDatabase =
         Room.databaseBuilder(activity, AppDatabase::class.java, "UserData")
             .fallbackToDestructiveMigration()

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/home_fragment.xml" value="0.19333333333333333" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/profile_fragment.xml" value="0.19333333333333333" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/menu/activity_main_drawer.xml" value="0.19635416666666666" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/menu/main.xml" value="0.19333333333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

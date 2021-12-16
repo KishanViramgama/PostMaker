@@ -19,5 +19,6 @@
     <string name="address">Address</string>
     <string name="website">Website</string>
     <string name="submit">Submit</string>
+    <string name="save">Save</string>
 
 </resources>
