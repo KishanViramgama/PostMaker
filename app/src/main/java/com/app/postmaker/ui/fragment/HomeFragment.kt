@@ -78,12 +78,14 @@ class HomeFragment : Fragment() {
 
         })
 
-        setHasOptionsMenu(true);
+        setHasOptionsMenu(true)
         return view
 
     }
 
+    @Override
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.clear()
         inflater.inflate(R.menu.main, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }

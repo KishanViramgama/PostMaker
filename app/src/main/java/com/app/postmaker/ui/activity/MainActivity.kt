@@ -1,11 +1,11 @@
 package com.app.postmaker.ui.activity
 
 import android.os.Bundle
-import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.app.postmaker.R
 import com.app.postmaker.ui.fragment.HomeFragment
+import com.app.postmaker.ui.fragment.MyWorkFragment
 import com.app.postmaker.ui.fragment.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_work -> supportFragmentManager.beginTransaction()
                     .replace(
                         R.id.frameLayout_main,
-                        HomeFragment(),
+                        MyWorkFragment(),
                         getString(R.string.home)
                     )
                     .commitAllowingStateLoss()
@@ -58,10 +58,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
+    /* override fun onCreateOptionsMenu(menu: Menu): Boolean {
+         // Inflate the menu; this adds items to the action bar if it is present.
+         menuInflater.inflate(R.menu.main, menu)
+         return true
+     }*/
 
 }
