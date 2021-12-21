@@ -41,6 +41,8 @@ class HomeFragment : Fragment() {
         val onClick = object : OnClick {
             override fun click(i: Int) {
                 activity?.let { Glide.with(it).load(image[i]).into(imageView) }
+                Toast.makeText(activity, resources.getString(R.string.save), Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
@@ -75,7 +77,6 @@ class HomeFragment : Fragment() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
             }
-
         })
 
         setHasOptionsMenu(true)
@@ -85,12 +86,12 @@ class HomeFragment : Fragment() {
 
     @Override
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        menu.clear()
         inflater.inflate(R.menu.main, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     @SuppressLint("WrongThread")
+    @Override
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.save -> {
@@ -102,7 +103,7 @@ class HomeFragment : Fragment() {
                 val mPath = requireActivity().externalCacheDir!!.absolutePath
 
                 try {
-                    val outputStream = FileOutputStream("$mPath-a.jpg")
+                    val outputStream = FileOutputStream("$mPath/a.jpg")
                     val quality = 100
                     bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
                     outputStream.flush()
@@ -114,7 +115,6 @@ class HomeFragment : Fragment() {
                 Toast.makeText(activity, resources.getString(R.string.save), Toast.LENGTH_SHORT)
                     .show()
             }
-            else -> {}
         }
         return true
     }

@@ -7,20 +7,26 @@ import com.app.postmaker.R
 import com.app.postmaker.ui.fragment.HomeFragment
 import com.app.postmaker.ui.fragment.MyWorkFragment
 import com.app.postmaker.ui.fragment.ProfileFragment
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var toolbar: MaterialToolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         bottomNavigationView = findViewById(R.id.bottomNav)
+        toolbar = findViewById(R.id.toolbar_main)
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        toolbar.title = resources.getString(R.string.app_name)
+        setSupportActionBar(toolbar)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
         supportFragmentManager.beginTransaction()
             .replace(
@@ -57,11 +63,5 @@ class MainActivity : AppCompatActivity() {
             false // return true;
         }
     }
-
-    /* override fun onCreateOptionsMenu(menu: Menu): Boolean {
-         // Inflate the menu; this adds items to the action bar if it is present.
-         menuInflater.inflate(R.menu.main, menu)
-         return true
-     }*/
 
 }
