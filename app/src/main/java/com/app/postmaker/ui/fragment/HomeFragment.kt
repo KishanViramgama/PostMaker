@@ -41,8 +41,6 @@ class HomeFragment : Fragment() {
         val onClick = object : OnClick {
             override fun click(i: Int) {
                 activity?.let { Glide.with(it).load(image[i]).into(imageView) }
-                Toast.makeText(activity, resources.getString(R.string.save), Toast.LENGTH_SHORT)
-                    .show()
             }
         }
 
@@ -103,7 +101,7 @@ class HomeFragment : Fragment() {
                 val mPath = requireActivity().externalCacheDir!!.absolutePath
 
                 try {
-                    val outputStream = FileOutputStream("$mPath/a.jpg")
+                    val outputStream = FileOutputStream(mPath + "/" + (0..10).random() + ".jpg")
                     val quality = 100
                     bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
                     outputStream.flush()
