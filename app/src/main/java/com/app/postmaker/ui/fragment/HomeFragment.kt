@@ -17,6 +17,8 @@ import com.app.postmaker.ui.adapter.FrameAdapter
 import com.app.postmaker.ui.adapter.ImageAdapter
 import com.bumptech.glide.Glide
 import java.io.FileOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeFragment : Fragment() {
 
@@ -27,7 +29,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var frameAdapter: FrameAdapter
     private var frameDesign = intArrayOf(R.layout.frame_a, R.layout.frame_b)
-    private var image = intArrayOf(R.drawable.a, R.drawable.b);
+    private var image = intArrayOf(R.drawable.a, R.drawable.b)
 
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
@@ -101,7 +103,15 @@ class HomeFragment : Fragment() {
                 val mPath = requireActivity().externalCacheDir!!.absolutePath
 
                 try {
-                    val outputStream = FileOutputStream(mPath + "/" + (0..10).random() + ".jpg")
+
+                    val date = Date()
+                    //Pattern for showing milliseconds in the time "SSS"
+                    //Pattern for showing milliseconds in the time "SSS"
+                    @SuppressLint("SimpleDateFormat") val sdf =
+                        SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS")
+                    val stringDate: String = sdf.format(date)
+
+                    val outputStream = FileOutputStream(mPath + "/" + stringDate + ".jpg")
                     val quality = 100
                     bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
                     outputStream.flush()

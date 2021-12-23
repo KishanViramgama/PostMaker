@@ -16,6 +16,5 @@ interface DataEntity {
     fun update(vararg profile: Profile)
 
     @Query("SELECT * FROM Profile")
-    fun getData(): Array<Profile>
-
+    fun getData(): Profile
 }
