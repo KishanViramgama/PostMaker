@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2125" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_home.xml" value="0.2125" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2125" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2125" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_pro.xml" value="0.2125" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_save.xml" value="0.2125" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_work.xml" value="0.2125" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/side_nav_bar.xml" value="0.2125" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/frame_a.xml" value="0.32618683001531396" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/frame_b.xml" value="0.33" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/home_fragment.xml" value="0.19333333333333333" />
@@ -12,6 +20,7 @@
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/profile_fragment.xml" value="0.19333333333333333" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/menu/activity_main_drawer.xml" value="0.19635416666666666" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/menu/main.xml" value="0.19333333333333333" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.10729166666666666" />
       </map>
     </option>
   </component>
