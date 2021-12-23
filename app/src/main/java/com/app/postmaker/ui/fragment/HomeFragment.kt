@@ -2,6 +2,7 @@ package com.app.postmaker.ui.fragment
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
@@ -96,9 +97,13 @@ class HomeFragment : Fragment() {
         when (item.itemId) {
             R.id.save -> {
 
-                con.isDrawingCacheEnabled = true
-                val bitmap = Bitmap.createBitmap(con.drawingCache)
-                con.isDrawingCacheEnabled = false
+                val bitmap = Bitmap.createBitmap(
+                    con.width,
+                    con.height,
+                    Bitmap.Config.ARGB_8888
+                )
+                val canvas = Canvas(bitmap)
+                con.draw(canvas)
 
                 val mPath = requireActivity().externalCacheDir!!.absolutePath
 
@@ -106,12 +111,11 @@ class HomeFragment : Fragment() {
 
                     val date = Date()
                     //Pattern for showing milliseconds in the time "SSS"
-                    //Pattern for showing milliseconds in the time "SSS"
                     @SuppressLint("SimpleDateFormat") val sdf =
                         SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS")
                     val stringDate: String = sdf.format(date)
 
-                    val outputStream = FileOutputStream(mPath + "/" + stringDate + ".jpg")
+                    val outputStream = FileOutputStream("$mPath/$stringDate.jpg")
                     val quality = 100
                     bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
                     outputStream.flush()
