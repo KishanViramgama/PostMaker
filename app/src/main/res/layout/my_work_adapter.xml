@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/imageView_myWork_adapter"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:contentDescription="@string/app_name"
         android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher"
