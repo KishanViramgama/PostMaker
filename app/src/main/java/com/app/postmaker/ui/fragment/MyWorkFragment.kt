@@ -78,7 +78,17 @@ class MyWorkFragment : Fragment() {
 
                 try {
                     val files: Queue<File> =
-                        LinkedList(listOf(File(requireActivity().externalCacheDir!!.absolutePath)))
+                        LinkedList(
+                            listOf(
+                                File(
+                                    requireActivity().getExternalFilesDir(
+                                        resources.getString(
+                                            R.string.app_name
+                                        )
+                                    ).toString()
+                                )
+                            )
+                        )
                     while (!files.isEmpty()) {
                         val file: File = files.remove()
                         if (file.isDirectory) {
@@ -88,7 +98,9 @@ class MyWorkFragment : Fragment() {
                         }
                     }
                     progressBar.hide()
-                    Log.d("data_list", fileList.size.toString())
+                    Log.d(
+                        "data_list", fileList.size.toString()
+                    )
                     if (fileList.size != 0) {
                         textViewNoData.visibility = View.GONE
                         recyclerView.adapter = activity?.let {

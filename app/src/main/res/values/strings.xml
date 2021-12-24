@@ -21,5 +21,6 @@
     <string name="submit">Submit</string>
     <string name="save">Save</string>
     <string name="noData">No data found</string>
+    <string name="share_to">Share to</string>
 
 </resources>

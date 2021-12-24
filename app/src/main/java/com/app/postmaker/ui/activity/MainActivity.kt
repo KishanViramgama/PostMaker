@@ -38,30 +38,48 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> supportFragmentManager.beginTransaction()
-                    .replace(
-                        R.id.frameLayout_main,
-                        HomeFragment(),
-                        getString(R.string.home)
-                    )
-                    .commitAllowingStateLoss()
-                R.id.nav_work -> supportFragmentManager.beginTransaction()
-                    .replace(
-                        R.id.frameLayout_main,
-                        MyWorkFragment(),
-                        getString(R.string.home)
-                    )
-                    .commitAllowingStateLoss()
-                R.id.nav_pro -> supportFragmentManager.beginTransaction()
-                    .replace(
-                        R.id.frameLayout_main,
-                        ProfileFragment(),
-                        getString(R.string.home)
-                    )
-                    .commitAllowingStateLoss()
+                R.id.nav_home -> {
+                    selectDrawerItem(0)
+                    supportFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.frameLayout_main,
+                            HomeFragment(),
+                            getString(R.string.home)
+                        )
+                        .commitAllowingStateLoss()
+                }
+                R.id.nav_work -> {
+                    selectDrawerItem(1)
+                    supportFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.frameLayout_main,
+                            MyWorkFragment(),
+                            getString(R.string.home)
+                        )
+                        .commitAllowingStateLoss()
+                }
+                R.id.nav_pro -> {
+                    selectDrawerItem(2)
+                    supportFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.frameLayout_main,
+                            ProfileFragment(),
+                            getString(R.string.home)
+                        )
+                        .commitAllowingStateLoss()
+                }
             }
             false // return true;
         }
+    }
+
+    private fun selectDrawerItem(position: Int) {
+        bottomNavigationView.menu.getItem(position).isChecked = true
+    }
+
+    private fun deselectDrawerItem(position: Int) {
+        bottomNavigationView.menu.getItem(position).isCheckable = false
+        bottomNavigationView.menu.getItem(position).isChecked = false
     }
 
 }

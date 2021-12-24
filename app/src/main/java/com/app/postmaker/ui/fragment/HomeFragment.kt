@@ -20,6 +20,15 @@ import com.bumptech.glide.Glide
 import java.io.FileOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
+import android.content.Intent
+import android.net.Uri
+
+import android.system.Os.link
+
+import androidx.core.content.FileProvider
+import com.app.postmaker.BuildConfig
+import java.io.File
+
 
 class HomeFragment : Fragment() {
 
@@ -55,7 +64,7 @@ class HomeFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         val linearLayoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.layoutManager = linearLayoutManager;
+        recyclerView.layoutManager = linearLayoutManager
 
         activity?.let { Glide.with(it).load(image[0]).into(imageView) }
 
@@ -75,9 +84,6 @@ class HomeFragment : Fragment() {
         Log.d("information_data", string)*/
 
         viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-            }
         })
 
         setHasOptionsMenu(true)
@@ -95,40 +101,79 @@ class HomeFragment : Fragment() {
     @Override
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.share -> {
+                ImageData("share")
+            }
             R.id.save -> {
-
-                val bitmap = Bitmap.createBitmap(
-                    con.width,
-                    con.height,
-                    Bitmap.Config.ARGB_8888
-                )
-                val canvas = Canvas(bitmap)
-                con.draw(canvas)
-
-                val mPath = requireActivity().externalCacheDir!!.absolutePath
-
-                try {
-
-                    val date = Date()
-                    //Pattern for showing milliseconds in the time "SSS"
-                    @SuppressLint("SimpleDateFormat") val sdf =
-                        SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS")
-                    val stringDate: String = sdf.format(date)
-
-                    val outputStream = FileOutputStream("$mPath/$stringDate.jpg")
-                    val quality = 100
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
-                    outputStream.flush()
-                    outputStream.close()
-                } catch (e: Throwable) {
-                    e.printStackTrace()  // Several error may come out with file handling or DOM
-                }
-
-                Toast.makeText(activity, resources.getString(R.string.save), Toast.LENGTH_SHORT)
-                    .show()
+                ImageData("Save")
             }
         }
         return true
+    }
+
+    @SuppressLint("UseRequireInsteadOfGet")
+    private fun ImageData(type: String) {
+
+        val path = if (type == "share") {
+            requireActivity().externalCacheDir!!.absolutePath
+        } else {
+            requireActivity().getExternalFilesDir(resources.getString(R.string.app_name))
+                .toString()
+        }
+
+        try {
+
+            val date = Date()
+            //Pattern for showing milliseconds in the time "SSS"
+            @SuppressLint("SimpleDateFormat") val sdf =
+                SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS")
+            val stringDate: String = sdf.format(date)
+
+            val bitmap = Bitmap.createBitmap(
+                con.width,
+                con.height,
+                Bitmap.Config.ARGB_8888
+            )
+            val canvas = Canvas(bitmap)
+            con.draw(canvas)
+
+            val outputStream = FileOutputStream("$path/$stringDate.jpg")
+            val quality = 100
+            bitmap.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
+            outputStream.flush()
+            outputStream.close()
+
+            if (type == "share") {
+                val contentUri: Uri =
+                    FileProvider.getUriForFile(
+                        requireActivity(),
+                        BuildConfig.APPLICATION_ID + ".fileprovider",
+                        File("$path/$stringDate.jpg")
+                    )
+                val shareIntent = Intent()
+                shareIntent.action = Intent.ACTION_SEND
+                shareIntent.type = "image/*"
+                shareIntent.putExtra(
+                    Intent.EXTRA_TEXT,
+                    requireActivity().resources.getString(R.string.app_name)
+                )
+                shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri)
+                activity!!.startActivity(
+                    Intent.createChooser(
+                        shareIntent,
+                        activity!!.resources.getString(R.string.share_to)
+                    )
+                )
+            } else {
+                Toast.makeText(activity, resources.getString(R.string.save), Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+        } catch (e: Throwable) {
+            e.printStackTrace()  // Several error may come out with file handling or DOM
+        }
+
+
     }
 
 }

@@ -6,6 +6,9 @@
     <color name="toolBar_color">#EC407A</color>
     <color name="appBg">#FFFFFFFF</color>
 
+    <color name="bottomNav">#2C2C2C</color>
+    <color name="bottomNav_select">#EC407A</color>
+
     <color name="editText_pro">#FF929292</color>
     <color name="textView_hint_pro">#FF929292</color>
     <color name="textView_hint_layout_pro">#EC407A</color>
