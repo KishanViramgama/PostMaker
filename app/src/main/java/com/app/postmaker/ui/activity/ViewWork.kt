@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import com.app.postmaker.BuildConfig
 import com.app.postmaker.R
+import com.app.postmaker.eventbus.Events
+import com.app.postmaker.eventbus.GlobalBus
 import com.bumptech.glide.Glide
 import com.google.android.material.appbar.MaterialToolbar
 import java.io.File
@@ -18,6 +20,7 @@ import java.io.File
 class ViewWork : AppCompatActivity() {
 
     private lateinit var string: String
+    private var position: Int = 0
     private lateinit var toolbar: MaterialToolbar
     private lateinit var imageView: ImageView
 
@@ -26,6 +29,7 @@ class ViewWork : AppCompatActivity() {
         setContentView(R.layout.activity_view_work)
 
         string = intent.getStringExtra("path")!!
+        position = intent.getIntExtra("position", 0)!!
 
         toolbar = findViewById(R.id.toolbar_viewWork)
         toolbar.title = ""
@@ -72,6 +76,7 @@ class ViewWork : AppCompatActivity() {
             }
             R.id.delete -> {
                 File(string).delete()
+                GlobalBus.bus?.post(Events.Notify("", position))
                 onBackPressed()
             }
             android.R.id.home -> onBackPressed()

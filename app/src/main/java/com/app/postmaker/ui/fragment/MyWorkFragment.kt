@@ -11,10 +11,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.postmaker.R
+import com.app.postmaker.eventbus.Events
+import com.app.postmaker.eventbus.GlobalBus
+import com.app.postmaker.eventbus.GlobalBus.bus
 import com.app.postmaker.ui.adapter.MyWorkAdapter
 import com.app.postmaker.util.Method
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.textview.MaterialTextView
+import org.greenrobot.eventbus.Subscribe
 import java.io.File
 import java.util.*
 import java.util.concurrent.Executors
@@ -24,6 +28,7 @@ import kotlin.collections.ArrayList
 class MyWorkFragment : Fragment() {
 
     private lateinit var method: Method
+    private lateinit var myWorkAdapter: MyWorkAdapter
     private val fileList: MutableList<File> = ArrayList()
     private lateinit var progressBar: CircularProgressIndicator;
     private lateinit var recyclerView: RecyclerView
@@ -38,6 +43,8 @@ class MyWorkFragment : Fragment() {
         val view: View = inflater.inflate(
             R.layout.my_work_fragment, container, false
         )
+
+        bus!!.register(this);
 
         method = activity?.let { Method(it) }!!
 
@@ -103,13 +110,16 @@ class MyWorkFragment : Fragment() {
                     )
                     if (fileList.size != 0) {
                         textViewNoData.visibility = View.GONE
-                        recyclerView.adapter = activity?.let {
+
+                        myWorkAdapter = activity?.let {
                             MyWorkAdapter(
                                 it,
                                 fileList,
                                 method.getScreenWidth() / 2
                             )
-                        }
+                        }!!
+                        recyclerView.adapter = myWorkAdapter
+
                     } else {
                         textViewNoData.visibility = View.VISIBLE
                     }
@@ -121,6 +131,19 @@ class MyWorkFragment : Fragment() {
         }
 
         return view
+    }
+
+
+    @Subscribe
+    fun getData(notify: Events.Notify) {
+        fileList.removeAt(notify.getPosition())
+        myWorkAdapter.notifyDataSetChanged()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Unregister the registered event.
+        bus!!.unregister(this)
     }
 
 }
