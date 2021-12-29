@@ -12,8 +12,11 @@ interface DataEntity {
     @Insert
     fun insert(vararg profile: Profile)
 
-    @Update()
+    @Update
     fun update(vararg profile: Profile)
+
+    @Query("SELECT EXISTS(SELECT * FROM Profile WHERE id = :id)")
+    fun isRowIsExist(id: Int): Boolean
 
     @Query("SELECT * FROM Profile")
     fun getData(): Profile

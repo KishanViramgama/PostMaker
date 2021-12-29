@@ -13,7 +13,7 @@ data class Profile(
     @ColumnInfo(name = "phoneNo") val phoneNo: String,
     @ColumnInfo(name = "webSite") val webSite: String,
     @ColumnInfo(name = "address") val address: String,
-    @PrimaryKey(autoGenerate = true) val id: Int?
+    @PrimaryKey @ColumnInfo(name = "id") val id: Int?
 ) : Serializable {
 
 }

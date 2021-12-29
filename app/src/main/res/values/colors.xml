@@ -17,13 +17,17 @@
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">
         @color/textView_box_color
     </color>
+    <color name="cursor_editText">#EC407A</color>
 
     <color name="black">#FF000000</color>
     <color name="name_bg">#222222</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="dialog_text">#000000</color>
+    <color name="dialog_text_button">#EC407A</color>
+
     <color name="button">#EC407A</color>
-    <color name="cursor_editText">#EC407A</color>
+    <color name="textView_noData">#6F6F6F</color>
     <color name="textView_select_text">#A6B9E1</color>
 
 </resources>

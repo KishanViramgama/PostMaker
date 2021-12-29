@@ -13,14 +13,25 @@
     <string name="home">Home</string>
     <string name="work">Work</string>
     <string name="profile">Profile</string>
+
+    <string name="ok">Ok</string>
+    <string name="save">Save</string>
+    <string name="share_to">Share to</string>
+    <string name="noData">No data found</string>
+
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="phoneNumber">Phone Number</string>
     <string name="address">Address</string>
     <string name="website">Website</string>
     <string name="submit">Submit</string>
-    <string name="save">Save</string>
-    <string name="noData">No data found</string>
-    <string name="share_to">Share to</string>
+
+    <string name="please_enter_name">Please enter name</string>
+    <string name="please_enter_email">Please enter email</string>
+    <string name="please_enter_phoneNo">Please enter phone no</string>
+    <string name="please_enter_web">Please enter website</string>
+    <string name="please_enter_address">Please enter address</string>
+    <string name="your_data_update">Your data update successfully</string>
+    <string name="your_data_insert">Your data insert successfully</string>
 
 </resources>
