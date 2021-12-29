@@ -7,6 +7,7 @@ import com.app.postmaker.R
 import com.app.postmaker.ui.fragment.HomeFragment
 import com.app.postmaker.ui.fragment.MyWorkFragment
 import com.app.postmaker.ui.fragment.ProfileFragment
+import com.app.postmaker.ui.fragment.SettingFragment
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -64,6 +65,16 @@ class MainActivity : AppCompatActivity() {
                         .replace(
                             R.id.frameLayout_main,
                             ProfileFragment(),
+                            getString(R.string.home)
+                        )
+                        .commitAllowingStateLoss()
+                }
+                R.id.nav_setting -> {
+                    selectDrawerItem(3)
+                    supportFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.frameLayout_main,
+                            SettingFragment(),
                             getString(R.string.home)
                         )
                         .commitAllowingStateLoss()

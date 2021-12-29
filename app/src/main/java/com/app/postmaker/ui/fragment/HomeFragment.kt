@@ -74,15 +74,6 @@ class HomeFragment : Fragment() {
         frameAdapter = activity?.let { FrameAdapter(it, frameDesign) }!!
         viewPager2.adapter = frameAdapter
 
-        /*val string: String = activity?.let {
-            DatabaseClient.getInstance(it)?.appDatabase
-                ?.userTask()
-                ?.getData()?.get(0)?.name
-        }!!
-
-        Toast.makeText(activity, string, Toast.LENGTH_SHORT).show()
-        Log.d("information_data", string)*/
-
         viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
         })
 

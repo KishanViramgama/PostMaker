@@ -12,4 +12,8 @@
         android:id="@+id/nav_pro"
         android:icon="@drawable/ic_pro"
         android:title="@string/profile" />
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/profile" />
 </menu>

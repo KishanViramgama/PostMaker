@@ -23,6 +23,13 @@
     <color name="name_bg">#222222</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="imageView_setting">#FFFFFF</color>
+    <color name="view_setting">#BFFFFFFF</color>
+    <color name="textView_setting">#FFFFFF</color>
+    <color name="textView_sub_setting">#BFFFFFFF</color>
+    <color name="textView_them">#FFFFFF</color>
+    <color name="con_bg_them">#222222</color>
+
     <color name="dialog_text">#FFFFFF</color>
     <color name="dialog_text_button">#FFFFFF</color>
 

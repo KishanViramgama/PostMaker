@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/cleaning.xml" value="0.2125" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2125" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_home.xml" value="0.2125" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2125" />
@@ -10,6 +11,7 @@
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_pro.xml" value="0.2125" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_save.xml" value="0.2125" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_work.xml" value="0.2125" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/night_mode.xml" value="0.2125" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/side_nav_bar.xml" value="0.2125" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/activity_view_work.xml" value="0.19635416666666666" />
@@ -20,6 +22,7 @@
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/my_work_fragment.xml" value="0.19635416666666666" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/nav_header_main.xml" value="0.19635416666666666" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/profile_fragment.xml" value="0.19333333333333333" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/setting_fragment.xml" value="0.19635416666666666" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/menu/activity_main_drawer.xml" value="0.19635416666666666" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/menu/main.xml" value="0.19333333333333333" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/menu/work.xml" value="0.19635416666666666" />
