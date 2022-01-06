@@ -34,6 +34,7 @@
     <color name="dialog_text_button">#FFFFFF</color>
 
     <color name="button">#FF424242</color>
+    <color name="textView_app_color">#EC407A</color>
     <color name="textView_noData">#FFFFFF</color>
     <color name="textView_select_text">#EC407A</color>
 

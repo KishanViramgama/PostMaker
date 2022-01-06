@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                         .replace(
                             R.id.frameLayout_main,
                             MyWorkFragment(),
-                            getString(R.string.home)
+                            getString(R.string.work)
                         )
                         .commitAllowingStateLoss()
                 }
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
                         .replace(
                             R.id.frameLayout_main,
                             ProfileFragment(),
-                            getString(R.string.home)
+                            getString(R.string.profile)
                         )
                         .commitAllowingStateLoss()
                 }
@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
                         .replace(
                             R.id.frameLayout_main,
                             SettingFragment(),
-                            getString(R.string.home)
+                            getString(R.string.setting)
                         )
                         .commitAllowingStateLoss()
                 }

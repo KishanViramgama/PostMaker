@@ -1,5 +1,6 @@
 package com.app.postmaker.util
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
@@ -10,9 +11,19 @@ import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import com.app.postmaker.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-
+import android.content.SharedPreferences
 
 class Method(var activity: Activity) {
+
+    lateinit var pref: SharedPreferences
+    lateinit var editor: SharedPreferences.Editor
+    private val myPreference = "PostMaker"
+    var themSetting = "them"
+
+    init {
+        pref = activity.getSharedPreferences(myPreference, 0) // 0 - for private mode
+        editor = pref.edit()
+    }
 
     //get screen width
     fun getScreenWidth(): Int {

@@ -10,6 +10,10 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="choose_one">Choose one</string>
+    <string name="Let_me_recommend_you_this_application">Let me recommend you this application</string>
+    <string name="play_more_app">https://play.google.com/store/apps/</string>
+
     <string name="home">Home</string>
     <string name="work">Work</string>
     <string name="profile">Profile</string>
