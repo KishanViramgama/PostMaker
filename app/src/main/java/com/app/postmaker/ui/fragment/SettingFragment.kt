@@ -12,13 +12,13 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
 import android.widget.RadioGroup
-import android.window.SplashScreen
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.app.postmaker.R
 import com.app.postmaker.ui.activity.AboutUs
 import com.app.postmaker.ui.activity.PrivacyPolicy
+import com.app.postmaker.ui.activity.Splash
 import com.app.postmaker.util.Method
 import com.google.android.material.radiobutton.MaterialRadioButton
 import com.google.android.material.textview.MaterialTextView
@@ -93,15 +93,15 @@ class SettingFragment : Fragment() {
         }
 
         constraintLayout.setOnClickListener {
-            val dialog = activity?.let { Dialog(it) }
-            dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog?.setContentView(R.layout.dialog_them)
-            dialog?.window?.setLayout(
+            val dialog = Dialog(requireActivity())
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setContentView(R.layout.dialog_them)
+            dialog.window?.setLayout(
                 ViewPager.LayoutParams.MATCH_PARENT,
                 ViewPager.LayoutParams.WRAP_CONTENT
             )
-            dialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
-            val radioGroup: RadioGroup = dialog?.findViewById(R.id.radioGroup_them)!!
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+            val radioGroup: RadioGroup = dialog.findViewById(R.id.radioGroup_them)!!
             val textViewOk: MaterialTextView = dialog.findViewById(R.id.textView_ok_them)
             val textViewCancel: MaterialTextView = dialog.findViewById(R.id.textView_cancel_them)
             when (them) {
@@ -116,7 +116,6 @@ class SettingFragment : Fragment() {
                         R.id.radioButton_system_them -> themMode = "system"
                         R.id.radioButton_light_them -> themMode = "light"
                         R.id.radioButton_dark_them -> themMode = "dark"
-                        else -> {}
                     }
                 }
             }
@@ -124,7 +123,7 @@ class SettingFragment : Fragment() {
                 method.editor.putString(method.themSetting, themMode)
                 method.editor.commit()
                 dialog.dismiss()
-                startActivity(Intent(activity, SplashScreen::class.java))
+                startActivity(Intent(requireActivity(), Splash::class.java))
                 requireActivity().finishAffinity()
             }
             textViewCancel.setOnClickListener { dialog.dismiss() }

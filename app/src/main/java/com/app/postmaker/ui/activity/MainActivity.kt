@@ -2,7 +2,6 @@ package com.app.postmaker.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import com.app.postmaker.R
 import com.app.postmaker.ui.fragment.HomeFragment
 import com.app.postmaker.ui.fragment.MyWorkFragment
@@ -26,8 +25,6 @@ class MainActivity : AppCompatActivity() {
 
         toolbar.title = resources.getString(R.string.app_name)
         setSupportActionBar(toolbar)
-
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
         supportFragmentManager.beginTransaction()
             .replace(
