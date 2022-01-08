@@ -138,6 +138,11 @@ class MyWorkFragment : Fragment() {
     fun getData(notify: Events.Notify) {
         fileList.removeAt(notify.getPosition())
         myWorkAdapter.notifyDataSetChanged()
+        if (fileList.size != 0) {
+            textViewNoData.visibility = View.GONE
+        }else{
+            textViewNoData.visibility = View.VISIBLE
+        }
     }
 
     override fun onDestroyView() {

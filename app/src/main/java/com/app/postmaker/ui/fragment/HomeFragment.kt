@@ -27,6 +27,7 @@ import android.system.Os.link
 
 import androidx.core.content.FileProvider
 import com.app.postmaker.BuildConfig
+import com.app.postmaker.ui.activity.MainActivity
 import java.io.File
 
 
@@ -41,7 +42,7 @@ class HomeFragment : Fragment() {
     private var frameDesign = intArrayOf(R.layout.frame_a, R.layout.frame_b)
     private var image = intArrayOf(R.drawable.a, R.drawable.b)
 
-    @SuppressLint("UseRequireInsteadOfGet")
+    @SuppressLint("UseRewquireInsteadOfGet")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

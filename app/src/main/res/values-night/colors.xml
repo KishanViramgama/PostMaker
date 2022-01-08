@@ -30,6 +30,10 @@
     <color name="textView_them">#FFFFFF</color>
     <color name="con_bg_them">#222222</color>
 
+    <color name="imageView_about_us">#FFFFFF</color>
+    <color name="textView_about_us">#FFFFFF</color>
+    <color name="textView_sub_about_us">#CCFFFFFF</color>
+
     <color name="dialog_text">#FFFFFF</color>
     <color name="dialog_text_button">#FFFFFF</color>
 

@@ -7,6 +7,7 @@
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2125" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_home.xml" value="0.2125" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2125" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_location.xml" value="0.20923076923076922" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2125" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_pro.xml" value="0.2125" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/drawable/ic_save.xml" value="0.2125" />
@@ -19,7 +20,7 @@
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/activity_splash_screen.xml" value="0.18" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/activity_view_work.xml" value="0.19635416666666666" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/dialog_them.xml" value="0.18703703703703703" />
-        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/frame_a.xml" value="0.32618683001531396" />
+        <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/frame_a.xml" value="0.2" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/frame_b.xml" value="0.33" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/home_fragment.xml" value="0.19333333333333333" />
         <entry key="..\:/Git Hub/PostMaker/app/src/main/res/layout/my_work_adapter.xml" value="0.18" />

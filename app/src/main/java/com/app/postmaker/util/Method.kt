@@ -1,20 +1,19 @@
 package com.app.postmaker.util
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
+import android.content.SharedPreferences
+import android.content.res.Configuration
+import android.graphics.Color
 import android.graphics.Point
 import android.util.Log
 import android.view.Display
+import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import com.app.postmaker.R
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import android.content.SharedPreferences
-import android.content.res.Configuration
-import android.graphics.Color
-import android.view.Window
 
 class Method(var activity: Activity) {
 
@@ -72,6 +71,14 @@ class Method(var activity: Activity) {
             Configuration.UI_MODE_NIGHT_YES -> true // Night mode is active, we're using dark theme
 
             else -> false
+        }
+    }
+
+    fun webViewText(): String? {
+        return if (isDarkMode()) {
+            Constant.webViewTextNight
+        } else {
+            Constant.webViewTextDay
         }
     }
 
