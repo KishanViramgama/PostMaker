@@ -1,5 +1,6 @@
 package com.app.postmaker.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -14,6 +15,7 @@ import com.app.postmaker.R
 import com.app.postmaker.eventbus.Events
 import com.app.postmaker.eventbus.GlobalBus
 import com.app.postmaker.eventbus.GlobalBus.bus
+import com.app.postmaker.ui.activity.MainActivity
 import com.app.postmaker.ui.adapter.MyWorkAdapter
 import com.app.postmaker.util.Method
 import com.google.android.material.progressindicator.CircularProgressIndicator
@@ -33,6 +35,8 @@ class MyWorkFragment : Fragment() {
     private lateinit var progressBar: CircularProgressIndicator;
     private lateinit var recyclerView: RecyclerView
     private lateinit var textViewNoData: MaterialTextView
+
+    private var loadActivity: MainActivity? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -149,6 +153,12 @@ class MyWorkFragment : Fragment() {
         super.onDestroyView()
         // Unregister the registered event.
         bus!!.unregister(this)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        loadActivity = context as MainActivity
+        loadActivity!!.toolbar.title = resources.getString(R.string.work)
     }
 
 }

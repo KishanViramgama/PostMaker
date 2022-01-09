@@ -43,8 +43,7 @@ class MainActivity : AppCompatActivity() {
                             R.id.frameLayout_main,
                             HomeFragment(),
                             getString(R.string.home)
-                        )
-                        .commitAllowingStateLoss()
+                        ).commitAllowingStateLoss()
                 }
                 R.id.nav_work -> {
                     selectDrawerItem(1)
@@ -53,8 +52,7 @@ class MainActivity : AppCompatActivity() {
                             R.id.frameLayout_main,
                             MyWorkFragment(),
                             getString(R.string.work)
-                        )
-                        .commitAllowingStateLoss()
+                        ).commitAllowingStateLoss()
                 }
                 R.id.nav_pro -> {
                     selectDrawerItem(2)
@@ -63,8 +61,7 @@ class MainActivity : AppCompatActivity() {
                             R.id.frameLayout_main,
                             ProfileFragment(),
                             getString(R.string.profile)
-                        )
-                        .commitAllowingStateLoss()
+                        ).commitAllowingStateLoss()
                 }
                 R.id.nav_setting -> {
                     selectDrawerItem(3)

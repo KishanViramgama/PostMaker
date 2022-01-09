@@ -3,6 +3,7 @@ package com.app.postmaker.ui.fragment
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -17,6 +18,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.app.postmaker.R
 import com.app.postmaker.ui.activity.AboutUs
+import com.app.postmaker.ui.activity.MainActivity
 import com.app.postmaker.ui.activity.PrivacyPolicy
 import com.app.postmaker.ui.activity.Splash
 import com.app.postmaker.util.Method
@@ -34,6 +36,8 @@ class SettingFragment : Fragment() {
     private lateinit var them: String
     private lateinit var themMode: String
     private lateinit var textViewCash: MaterialTextView
+
+    private var loadActivity: MainActivity? = null
 
     @SuppressLint("SetTextI18n", "NewApi")
     override fun onCreateView(
@@ -205,6 +209,12 @@ class SettingFragment : Fragment() {
                 Uri.parse(resources.getString(R.string.play_more_app))
             )
         )
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        loadActivity = context as MainActivity
+        loadActivity!!.toolbar.title = resources.getString(R.string.setting)
     }
 
 }

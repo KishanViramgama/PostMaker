@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import com.app.postmaker.R
 import com.app.postmaker.database.DatabaseClient
 import com.app.postmaker.item.Profile
+import com.app.postmaker.ui.activity.MainActivity
 import com.app.postmaker.util.Method
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -30,6 +31,8 @@ class ProfileFragment : Fragment() {
     private lateinit var editTextPhoneNo: TextInputEditText
     private lateinit var editTextWebSite: TextInputEditText
     private lateinit var editTextAddress: TextInputEditText
+
+    private var loadActivity: MainActivity? = null
 
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
@@ -133,6 +136,12 @@ class ProfileFragment : Fragment() {
 
     private fun isValidMail(email: String): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        loadActivity = context as MainActivity
+        loadActivity!!.toolbar.title = resources.getString(R.string.profile)
     }
 
 }

@@ -1,6 +1,7 @@
 package com.app.postmaker.ui.fragment
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Bundle
@@ -41,6 +42,8 @@ class HomeFragment : Fragment() {
     private lateinit var frameAdapter: FrameAdapter
     private var frameDesign = intArrayOf(R.layout.frame_a, R.layout.frame_b)
     private var image = intArrayOf(R.drawable.a, R.drawable.b)
+
+    private var loadActivity: MainActivity? = null
 
     @SuppressLint("UseRewquireInsteadOfGet")
     override fun onCreateView(
@@ -166,6 +169,12 @@ class HomeFragment : Fragment() {
         }
 
 
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        loadActivity = context as MainActivity
+        loadActivity!!.toolbar.title = resources.getString(R.string.home)
     }
 
 }
